@@ -5,7 +5,8 @@ OBJ :=	multipart_post_parsing.beam \
 	ehtml_test.beam \
 	embedded_yaws_id_dir.beam \
 	cookies.beam \
-	headers.beam
+	headers.beam \
+	ipmask.beam
 
 all:	$(OBJ)
 
