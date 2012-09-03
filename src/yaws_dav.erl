@@ -189,8 +189,8 @@ propfind(A) ->
     end.
 
 
-date_string({{Y,M,D}, {Hr,Min,Sec}}) ->
-    lists:concat([D, " ", month(M), " ", Y, " ", Hr, ":", Min, ":", Sec]).
+date_string(A) ->
+        httpd_util:rfc1123_date(A).
 
 get_entries(A) ->
     Path = davpath(A),
@@ -432,19 +432,6 @@ parse_prop([H|T], L) ->
 parse_prop([], L) ->
     lists:reverse(L).  % preserve order!
 
-
-month(1)  -> "Jan";
-month(2)  -> "Feb";
-month(3)  -> "Mar";
-month(4)  -> "Apr";
-month(5)  -> "May";
-month(6)  -> "Jun";
-month(7)  -> "Jul";
-month(8)  -> "Aug";
-month(9)  -> "Sep";
-month(10) -> "Oct";
-month(11) -> "Nov";
-month(12) -> "Dec".
 
 out207(L) ->
     outXXX(207, L).
