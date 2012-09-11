@@ -2509,7 +2509,7 @@ deliver_options(CliSock, _Req, Options) ->
     H = #outh{status = 200,
               doclose = false,
               chunked = false,
-              server = yaws:make_server_header(),
+              server = yaws:make_server_header() ++ ["MS-Author-Via: DAV\r\n"],
               date = yaws:make_date_header(),
               allow = yaws:make_allow_header(Options)},
     put(outh, H),
